@@ -15,9 +15,9 @@ import android.view.MotionEvent;
 public class NoNestedScrollView extends NestedScrollView {
 	private float mDownPosX;
 	private float mDownPosY;
-	
 	public NoNestedScrollView(@NonNull Context context) {
 		this(context, null);
+		//这个
 	}
 	
 	public NoNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
