@@ -17,7 +17,7 @@ public class NoNestedScrollView extends NestedScrollView {
 	private float mDownPosY;
 	public NoNestedScrollView(@NonNull Context context) {
 		this(context, null);
-		//这个
+		//这个测试测
 	}
 	
 	public NoNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
