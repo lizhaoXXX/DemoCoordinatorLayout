@@ -21,31 +21,32 @@ public class MyFragment extends Fragment {
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		ImageView imageView = new ImageView(getActivity());
+		
+		View rootView = inflater.inflate(R.layout.fragment_my, null);
+		ImageView imageView = rootView.findViewById(R.id.iv_image);
 		Random random = new Random();
 		int i = random.nextInt(6);
 		switch (i){
 		    case 0:
-				imageView.setImageResource(R.mipmap.a1);
+				imageView.setImageResource(R.mipmap.image1);
 		    break;
 		    case 1:
-				imageView.setImageResource(R.mipmap.a2);
+				imageView.setImageResource(R.mipmap.image2);
 		    break;
 			case 2:
-				imageView.setImageResource(R.mipmap.a3);
+				imageView.setImageResource(R.mipmap.image3);
 				break;
 			case 3:
-				imageView.setImageResource(R.mipmap.a6);
+				imageView.setImageResource(R.mipmap.image4);
 				break;
 			case 4:
-				imageView.setImageResource(R.mipmap.a7);
+				imageView.setImageResource(R.mipmap.image5);
 				break;
 		    default:
-				imageView.setImageResource(R.mipmap.a7);
+				imageView.setImageResource(R.mipmap.image5);
 		        break;
 		}
 		
-		imageView.setScaleType(ImageView.ScaleType.CENTER);
-		return imageView;
+		return rootView;
 	}
 }
