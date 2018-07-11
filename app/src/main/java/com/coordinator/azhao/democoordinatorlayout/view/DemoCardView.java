@@ -3,6 +3,7 @@ package com.coordinator.azhao.democoordinatorlayout.view;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ViewGroup;
 
 /**
@@ -10,20 +11,19 @@ import android.view.ViewGroup;
  * @date 2018/7/9
  * $desc 锁定宽高比的CardView
  */
-public class AspectRatioCardView extends CardView {
+public class DemoCardView extends CardView {
 	
-	private float ratioWight = 1.0f;
-	private float ratio = 0.5f;
+	private float ratio = 0.6f;
 	
-	public AspectRatioCardView(Context context) {
+	public DemoCardView(Context context) {
 		this(context, null);
 	}
 	
-	public AspectRatioCardView(Context context, AttributeSet attrs) {
+	public DemoCardView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 	
-	public AspectRatioCardView(Context context, AttributeSet attrs, int defStyleAttr) {
+	public DemoCardView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 	}
 	
@@ -31,12 +31,11 @@ public class AspectRatioCardView extends CardView {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		if (ratio > 0) {
-			int ratioWidth = (int) (getMeasuredWidth() * ratioWight);
+			Log.i(getClass().getName()+"==", "getMeasuredWidth() = " + getMeasuredWidth() + "--getMeasuredHeight() = " + getMeasuredHeight());
 			int ratioHeight = (int) (getMeasuredWidth() * ratio);
-			setMeasuredDimension(ratioWidth, ratioHeight);
+			setMeasuredDimension(getMeasuredWidth(), ratioHeight);
 			ViewGroup.LayoutParams lp = getLayoutParams();
 			lp.height = ratioHeight;
-			lp.width = ratioWidth;
 			setLayoutParams(lp);
 		}
 	}

@@ -28,15 +28,18 @@ public class CardTransformer implements ViewPager.PageTransformer {
 			Log.i(getClass().getName()+"==", "<=0 position=" +position);
         } else {
 			Log.i(getClass().getName()+"==", " position=" +position);
-            //移动X轴坐标，使得卡片在同一坐标
-			float pageWidth = page.getWidth() * 1.2f;
+			//移动X轴坐标，使得卡片在同一坐标
+			float pageWidth = page.getWidth() * 1.5f;
 			page.setTranslationX(-position * pageWidth);
+
+				
+			
             //缩放卡片并调整位置
-            float scale = (page.getWidth() - mOffset * position) / page.getWidth();
-            page.setScaleX(scale);
-            page.setScaleY(scale);
+//            float scale = (page.getWidth() - mOffset * position) / page.getWidth();
+//            page.setScaleX(scale);
+//            page.setScaleY(scale);
             //移动Y轴坐标
-            page.setTranslationY(position * mOffset);
+//            page.setTranslationY(position * mOffset);
             
 			/*if(position<=0){
 				//pos区域[-1,0)

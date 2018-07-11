@@ -14,44 +14,33 @@ import android.view.View;
  * 实现ViewPager左右滑动时的时差
  * Created by xmuSistone on 2016/9/18.
  */
-public class CustPagerTransformer implements ViewPager.PageTransformer {
+public class CustPagerTransformer03 implements ViewPager.PageTransformer {
 	private static final float DEFAULT_MIN_ALPHA = 0.3f;
 	private              float mMinAlpha         = DEFAULT_MIN_ALPHA;
-	
+	private float MINALPHA = 0.5f;
 	private static final float MAX_ALPHA=0.1f;
 	private static final float MAX_SCALE=0.9f;
 	
 	private int       maxTranslateOffsetX;
 	private ViewPager viewPager;
 	
-	public CustPagerTransformer(Context context) {
-//		this.maxTranslateOffsetX = dp2px(context, 180);
-		this.maxTranslateOffsetX = dp2px(context, 120);
+	public CustPagerTransformer03(Context context) {
 	}
 	
 	@Override
 	public void transformPage(View view, float position) {
 		//position = 0 当前界面位于屏幕中心,  1 当前Page刚好滑出屏幕，位于屏幕右侧, -1 当前Page刚好滑出屏幕，位于屏幕左侧
-		
-		if (viewPager == null) {
-			viewPager = (ViewPager) view.getParent();
+		if (position < -1 || position > 1) {
+			view.setAlpha(MINALPHA);
+		} else {
+			//不透明->半透明
+			if (position < 0) {//[0,-1]
+				view.setAlpha(MINALPHA + (1 + position) * (1 - MINALPHA));
+			} else {//[1,0]
+				//半透明->不透明
+				view.setAlpha(MINALPHA + (1 - position) * (1 - MINALPHA));
+			}
 		}
-		
-		int leftInScreen = view.getLeft() - viewPager.getScrollX();
-		int centerXInViewPager = leftInScreen + view.getMeasuredWidth() / 2;
-		int offsetX = centerXInViewPager - viewPager.getMeasuredWidth() / 2;
-		float offsetRate = (float) offsetX * 0.38f / viewPager.getMeasuredWidth();
-		float scaleFactor = 1 - Math.abs(offsetRate);
-		if (scaleFactor > 0) {
-			view.setScaleX(scaleFactor);
-			view.setScaleY(scaleFactor);
-			view.setTranslationX(-maxTranslateOffsetX * offsetRate);
-		}
-		
-		
-		
-	
-		
 		
 		
 	}

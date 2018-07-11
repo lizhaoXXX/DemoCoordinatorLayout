@@ -18,7 +18,7 @@ public  class BannerViewHolder implements MZViewHolder<Integer> {
 	@Override
 	public View createView(Context context) {
 		// 返回页面布局
-		View view = LayoutInflater.from(context).inflate(R.layout.fragment_my,null);
+		View view = LayoutInflater.from(context).inflate(R.layout.fragment_my02,null);
 		mImageView =  view.findViewById(R.id.iv_image);
 		return view;
 	}
