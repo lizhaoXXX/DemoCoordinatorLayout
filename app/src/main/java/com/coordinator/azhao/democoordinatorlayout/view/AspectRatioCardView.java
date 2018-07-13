@@ -12,8 +12,8 @@ import android.view.ViewGroup;
  */
 public class AspectRatioCardView extends CardView {
 	
-	private float ratioWight = 1.0f;
-	private float ratio = 0.5f;
+	private float ratioWight = 0.90f;
+	private float ratio = 1.5f;
 	
 	public AspectRatioCardView(Context context) {
 		this(context, null);
