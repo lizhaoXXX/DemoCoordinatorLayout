@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+    >
+
+    <com.coordinator.azhao.democoordinatorlayout.view02.ImageFrameLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_centerInParent="true"
+        />
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/image4"
+        android:elevation="1dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
